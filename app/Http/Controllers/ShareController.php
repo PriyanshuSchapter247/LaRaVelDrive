@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ShareController extends Controller
 {
@@ -53,7 +54,6 @@ class ShareController extends Controller
 
     public function request(Share $image, $id)
     {
-
         $data = Share::with(['user'])->find($id);
 
         // dd($data);
@@ -68,7 +68,9 @@ class ShareController extends Controller
         $image->status = '0';
         // dd($image);
         $image->save();
-
+//        Mail::raw(' user is send request to access the image',function($msg){
+//            $msg->to($image->send_to)->subject('Request');
+//        });
 
         return redirect('/home')->with('success', 'Request Send');
     }

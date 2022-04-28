@@ -190,7 +190,7 @@
                                                 {{-- <td>{{ $image->user->email }}</td> --}}
                                                 <td>{{ $image->send_from }}</td>
 
-                                                <td><img id="myImg" src="uploads/images/{{ $image->send_image }}"
+                                                <td><img id="myImg" src="images/images/{{ $image->send_image }}"
                                                         width="400px" height="70px" alt=""></td>
                                                 {{-- <td><a href="/"><i
                                                             class="btn btn-block btn-outline-primary"
