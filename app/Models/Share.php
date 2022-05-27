@@ -9,13 +9,13 @@ class Share extends Model
 {
     use HasFactory;
     protected $table="share";
-    protected$filllable=['send_from','send_to','send_image','status','url'];
+    protected $filllable=['send_from','send_to','send_image','status','url'];
 
 
 
 
     public function User(){
-        return $this->belongsTo(User::class,'send_to','email');
+        return $this->belongsTo(User::class,'send_to','id');
     }
 
 }

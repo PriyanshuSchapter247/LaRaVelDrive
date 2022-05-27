@@ -7,7 +7,6 @@
         }
 
 
-
         #myImg {
             border-radius: 5px;
             cursor: pointer;
@@ -163,42 +162,37 @@
                                 <h3 class="card-title">Share Images Table</h3>
 
 
-
                             </div>
-
-
-
 
 
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead style="text-align: center">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Request From</th>
-                                            {{-- <th>Share to</th> --}}
-                                            {{-- <th>View</th> --}}
-                                            <th>image</th>
-                                            <th>Status</th>
-                                        </tr>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Request From</th>
+                                        {{-- <th>Share to</th> --}}
+                                        {{-- <th>View</th> --}}
+                                        <th>image</th>
+                                        <th>Status</th>
+                                    </tr>
                                     </thead>
                                     <tbody style="text-align: center">
-                                        @foreach ($images as $image)
-                                            <tr>
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                {{-- <td>{{ $image->user->email }}</td> --}}
-                                                <td>{{ $image->send_to }}</td>
-                                                <td><img id="myImg" src="images/images/{{ $image->send_image }}"
-                                                        width="400px" height="70px" alt=""></td>
+                                    @foreach ($images as $image)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            {{-- <td>{{ $image->user->email }}</td> --}}
+                                            <td>{{ $image->send_to }}</td>
+                                            <td><img id="myImg" src="images/images/{{ $image->send_image }}"
+                                                     width="400px" height="70px" alt=""></td>
 
 
-
-                                                <td><a href="/changestatus/{{ $image->id }}"><i
-                                                            class="btn btn-block btn-outline-success"
-                                                            data-feather="edit">Accept</i></a></td>
-                                            </tr>
-                                        @endforeach
+                                            <td><a href="/changestatus/{{ $image->id }}"><i
+                                                        class="btn btn-block btn-outline-success"
+                                                        data-feather="edit">Accept</i></a></td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -213,7 +207,6 @@
             </div>
 
         </section>
-
 
 
     </div>

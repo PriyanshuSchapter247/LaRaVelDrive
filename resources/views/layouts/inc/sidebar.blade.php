@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:darkolivegreen;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:lightslategray;">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
 {{--        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"--}}

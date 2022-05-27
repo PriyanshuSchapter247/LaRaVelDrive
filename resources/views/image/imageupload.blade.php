@@ -40,16 +40,16 @@
                                 <div class="card-body">
 
                                     <div class="form-group">
-{{--                                        @if($errors->any())--}}
+                                        {{--                                        @if($errors->any())--}}
                                         <label for="exampleInputFile">Image</label>
-                                            @error('image')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-{{--                                        @endif--}}
+                                        @error('image')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                        {{--                                        @endif--}}
                                         <div class="input-group">
                                             <div class="custom-file">
 
-                                               <input type="file" name="image" id="exampleInputFile">
+                                                <input type="file" name="image" id="exampleInputFile" multiple>
 
                                             </div>
 
@@ -58,8 +58,12 @@
                                 </div>
 
                                 <div class="card-footer">
-                                   <center> <button type="submit" name="submit" class="btn btn-primary">Save</button></center>
+                                    {{--                                    <div class="input-group-btn">--}}
+                                    <center>
+                                        <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                                    </center>
                                 </div>
+                                {{--                                </div>--}}
                             </form>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,7 @@ Route::get('sharemail', function () {
 });
 Auth::routes();
 
+#Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('login');
 
 // Image controller
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,8 +35,10 @@ Route::post('/share', [App\Http\Controllers\ShareController::class, 'share']);
 Route::get('/sharelist', [App\Http\Controllers\ShareController::class, 'sharelist']);
 Route::get('/request/{id}', [App\Http\Controllers\ShareController::class, 'request']);
 Route::get('/requestlist', [App\Http\Controllers\ShareController::class, 'requestlist']);
-Route::get('/changestatus/{id}',[App\Http\Controllers\ShareController::class, 'changeStatus']);
+Route::get('/changestatus/{id}', [App\Http\Controllers\ShareController::class, 'changeStatus']);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Plan controller
+Route::get('/plan', [App\Http\Controllers\PlanController::class, 'plan']);
+Route::get('/subscription/{id}', [App\Http\Controllers\PlanController::class, 'subscription']);
+

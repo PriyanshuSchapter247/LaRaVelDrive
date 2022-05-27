@@ -36,6 +36,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+
                             </div>
                         </div>
 
@@ -66,7 +68,14 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
+                                <a class="btn btn-primary" href="{{ route('login') }}">
+                                    {{ __('Login') }}
+                                </a>
                             </div>
+
+
+
                         </div>
                     </form>
                 </div>

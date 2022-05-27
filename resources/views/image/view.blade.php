@@ -30,7 +30,7 @@
                         <div class="card card-secondary">
                             <div class="card-header">
                                 <h3 class="card-title">Add Images</h3>
-                                <a href="/show" class="btn btn-outline-primary" style="float: right">List</a> 
+                                <a href="/show" class="btn btn-outline-primary" style="float: right">List</a>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -43,22 +43,25 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" name="image"
-                                                    class="custom-file-input @error('image') is-invalid @enderror"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                       class="custom-file-input @error('image') is-invalid @enderror"
+                                                       id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                    file</label>
                                                 @error('image')
-                                                    <span class="invalid-feedback" role="alert">
+                                                <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="card-footer">
-                                   <center> <button type="submit" name="submit" class="btn btn-primary">Save</button></center>
+                                    <center>
+                                        <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                                    </center>
                                 </div>
                             </form>
                         </div>

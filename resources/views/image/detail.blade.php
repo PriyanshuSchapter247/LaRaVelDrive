@@ -14,38 +14,42 @@
                                 </center>
                             </div>
 
-                            @if (Auth::user()->id == $image->created_by)
-{{--                                 Statements inside body of if --}}
-                                <div class="col-md-12" >
-                                    <center> <img style="height:10%; width:10%" src={{ asset('images/images/' . $image->image) }} alt=""></center>
+                            @if (auth()->user()->id == $image->created_by)
+                                {{--                                 Statements inside body of if--}}
+                                <div class="col-md-12">
+                                    <center><img style="height:10%; width:10%"
+                                                 src={{ asset('images/images/' . $image->image) }} alt=""></center>
+                                </div>
+
+                                <div class="col-md-6 mt-6" style="margin-left:25%; background-color:darkolivegreen">
+                                    <td>
+                                        <input type="text" class="form-control" onclick="this.select()"
+                                               value="{{asset('images/images/'.$image->image)}}"/>
+                                    </td>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <a href="/shareview/{{ $image->id }}"><i class="btn btn-block btn-outline-info"
+                                                                             data-feather="edit">Share</i></a>
+                                </div>
+
+
+                                {{--                            @elseif(isset($share) && $share->send_to == auth()->user()->email)--}}
+                            @elseif(auth()->user()->id == $share->send_to)
+
+
+                                <div class="col-md-12">
+                                    <center><img style="height:10%; width:10%"
+                                                 src={{ asset('images/images/' . $image->image) }} alt=""></center>
                                 </div>
 
 
                                 <div class="col-md-6 mt-6" style="margin-left:25%; background-color:darkolivegreen">
                                     <td>
-                                        <input type="text"  class="form-control" onclick="this.select()" value="{{asset('images/images/'.$image->image)}}" />
+                                        <input type="text" class="form-control" onclick="this.select()"
+                                               value="{{asset('images/images/'.$image->image)}}"/>
                                     </td>
                                 </div>
-
-                                    <div class="col-md-12 mt-2">
-                                        <a href="/shareview/{{ $image->id }}"><i class="btn btn-block btn-outline-info"
-                                                                                 data-feather="edit">Share</i></a>
-                                    </div>
-
-
-                            @elseif($share->send_to == auth()->user()->email)
-
-
-                                                                <div class="col-md-12" >
-                                                                    <center> <img style="height:10%; width:10%" src={{ asset('images/images/' . $image->image) }} alt=""></center>
-                                                                </div>
-
-
-                                                                <div class="col-md-6 mt-6" style="margin-left:25%; background-color:darkolivegreen">
-                                                                    <td>
-                                                                        <input type="text"  class="form-control" onclick="this.select()" value="{{asset('images/images/'.$image->image)}}" />
-                                                                    </td>
-                                                                </div>
 
                             @else
                                 <div class="col-md-12 mt-3">
@@ -58,6 +62,26 @@
 
                             @endif
 
+
+                            {{--                            @if ($image->created_by == auth()->user()->id)--}}
+                            {{--                                <div class="col-md-12">--}}
+                            {{--                                    <center> <img src={{ asset('images/images/' . $image->image) }} alt=""></center>--}}
+                            {{--                                </div>--}}
+                            {{--                            @elseif($share->send_to == auth()->user()->id)--}}
+                            {{--                                <div class="col-md-12">--}}
+                            {{--                                    <center> <img src={{ asset('images/images/' . $share->image->image) }} alt="">--}}
+                            {{--                                    </center>--}}
+                            {{--                                </div>--}}
+                            {{--                            @else--}}
+                            {{--                                <div class="col-md-12 mt-3">--}}
+                            {{--                                    <center>--}}
+                            {{--                                        <h4><b> Not Allow by Owner.Plese Request</b></h4>--}}
+                            {{--                                    </center>--}}
+                            {{--                                    --}}{{-- {{ dd($image->id) }} --}}
+                            {{--                                    <a href="/request/{{ $image->id }}"><i class="btn btn-block btn-outline-info"--}}
+                            {{--                                                                           data-feather="edit">Request</i></a>--}}
+                            {{--                                </div>--}}
+                            {{--                            @endif--}}
 
                         </div>
                     </div>

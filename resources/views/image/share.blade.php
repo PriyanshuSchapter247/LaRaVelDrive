@@ -41,7 +41,7 @@
                                                 id="exampleSelectBorder">
                                                 <option value="Select">Select Users</option>
                                                 @foreach ($users as $user)
-                                                    <option value="{{ $user->email }}">{{ $user->email }}</option>
+                                                    <option value="{{ $user->id}}">{{ $user->name }}</option>
                                                 @endforeach
 
                                             </select>

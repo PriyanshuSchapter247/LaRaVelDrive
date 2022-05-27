@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function image(){
+        return $this->belongsTo(User::class,'plan','user_id');
+    }
+
+    public function userplan(){
+        return $this->belongsTo(Plan::class, 'plan', 'id');
+    }
+
+
 }
