@@ -24,6 +24,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    // Home Page with Select Plan
+
     public function index()
     {
 //        return view('home');

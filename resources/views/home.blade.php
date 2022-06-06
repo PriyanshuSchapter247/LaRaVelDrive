@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--    <script type="text/javascript">--}}
+    {{--        window.loading_screen = window.pleaseWait({--}}
+    {{--            logo: "/images/logo.svg",--}}
+    {{--            backgroundColor: '#ffffff',--}}
+    {{--            loadingHtml: 'Add html here'--}}
+    {{--        });--}}
+    {{--    </script>--}}
+    {{--    <script>window.loading_screen.finish();</script>--}}
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -17,6 +25,7 @@
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
+            {{--// DashBoard Page--}}
         </div>
         <div class="col-md-12">
             <div class="card">
@@ -49,19 +58,19 @@
         </div>
 
 
-        <div class="col-lg-12 col-12" style="background-color:lightblue;">
+        <!-- <div class="col-lg-12 col-12" style="background-color:lightblue;">
             <!-- small box -->
-            <div class="small-box ">
-                <div class="inner">
-                    <h3>View</h3>
+        <!-- <div class="small-box ">
+            <!-- <div class="inner"> -->
+        <!-- <h3>View</h3> -->
 
-                    <p>Images</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-list"></i>
-                </div>
-                <a href="/show" class="small-box-footer"><i class="fas fa-list"></i></a>
-            </div>
-        </div>
+        <!-- <p>Images</p> -->
+        <!-- </div> -->
+        <!-- <div class="icon"> -->
+        <!-- <i class="fas fa-list"></i> -->
+        <!-- </div> -->
+        <!-- <a href="/show" class="small-box-footer"><i class="fas fa-list"></i></a> -->
+        <!-- </div> -->
+        <!-- </div> -->
 
 @endsection

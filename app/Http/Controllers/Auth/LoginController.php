@@ -50,4 +50,9 @@ class LoginController extends Controller
 //        $this->performLogout($request);
 //        return redirect()->route('login');
 //    }
+
+public function index()
+{
+     return view("auth.login");
+}
 }

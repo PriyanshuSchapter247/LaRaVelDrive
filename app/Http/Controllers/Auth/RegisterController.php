@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -55,9 +56,9 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
 
-          Mail::raw('you are register successful Now you unlock new features of mini drive',function($msg){
-             $msg->to(Auth::user()->email)->subject('login');
-          });
+        Mail::raw('you are register successful Now you unlock new features of mini drive', function ($msg) {
+            $msg->to(Auth::user()->email)->subject('login');
+        });
 
         if ($response = $this->registered($request, $user)) {
             return $response;
@@ -71,7 +72,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -86,7 +87,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return User
      */
     protected function create(array $data)

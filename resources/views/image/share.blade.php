@@ -19,7 +19,7 @@
         </section>
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid" style=" margin-left: 330px" >
+            <div class="container-fluid" style=" margin-left: 330px">
                 <div class="row">
                     <div class="col-md-6">
                         <!-- general form elements -->
@@ -30,15 +30,16 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
+                            {{--// Share Form--}}
                             <form method="POST" action="/share">
                                 @csrf
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <div class="form-group">
                                         {{-- <label for="exampleInputFile">Share Image</label> --}}
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Share to</label>
                                             <select class="custom-select form-control-border" name="send_to"
-                                                id="exampleSelectBorder">
+                                                    id="exampleSelectBorder">
                                                 <option value="Select">Select Users</option>
                                                 @foreach ($users as $user)
                                                     <option value="{{ $user->id}}">{{ $user->name }}</option>
@@ -49,18 +50,20 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Image</label>
                                             <input type="text" name="send_image" value="{{ $image->image }}"
-                                                class="form-control" id="exampleInputEmail1" placeholder="Image">
+                                                   class="form-control" id="exampleInputEmail1" placeholder="Image">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Url</label>
-                                            <input type="text" name="url" value="{{ asset('view/'. $image['id']) }}"
-                                                class="form-control" id="exampleInputEmail1" placeholder="Image">
+                                            <input type="text" name="url"
+                                                   value="{{ asset('image_view/'. $image['id']) }}"
+                                                   class="form-control" id="exampleInputEmail1" placeholder="Image">
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <center> <button type="submit" name="submit" class="btn btn-primary">Share</button>
+                                    <center>
+                                        <button type="submit" name="submit" class="btn btn-primary">Share</button>
                                     </center>
                                 </div>
                             </form>

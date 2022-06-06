@@ -16,6 +16,7 @@ class PLanController extends Controller
         $this->middleware('auth');
     }
 
+    //Plan View Page
     public function plan()
     {
         $plans = Plan::all();
@@ -26,7 +27,7 @@ class PLanController extends Controller
         ));
     }
 
-
+   //Subcription Page
     public function subscription($id)
     {
 

@@ -27,7 +27,7 @@ class AddDeleteAtToImageTable extends Migration
     {
         Schema::table('image', function (Blueprint $table) {
             $table->dropSoftDeletes();
-        
+
         });
     }
 }

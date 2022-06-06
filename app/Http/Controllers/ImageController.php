@@ -9,7 +9,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Jobs\ShareImageJob;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use League\CommonMark\Node\Block\Document;
 
 
@@ -20,6 +22,8 @@ class ImageController extends Controller
     {
         $this->middleware('auth');
     }
+
+    //Image Page
 
     public function index()
     {
@@ -39,6 +43,7 @@ class ImageController extends Controller
         //
     }
 
+    //Image Store Page
     public function store(Request $request)
     {
         $request->validate([
@@ -50,56 +55,28 @@ class ImageController extends Controller
         $image->created_by = $user_id;
 
 
-//                if($request->hasfile('image')) {
-//                    foreach ($request->file('imageFile') as $file) {
-//                        $name = $file->getClientOriginalName();
-//                        $file->move(public_path() . 'images/images/', $name);
-//                        $image[] = $name;
-//                    }
-//                    $image = new Image();
-//                    $image->name = json_encode($image);
-//                }
-
-//        dd($request);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
-            $file->move('images/images/', $filename);
+            $file->move('images/images', $filename);
             $image->image = $filename;
+            $image->save();
 
+            Mail::raw('you have successful add image on mini drive', function ($msg) {
+                $msg->to(Auth::user()->email)->subject('Add Image');
+            });
+
+            return redirect('show')->with('success', 'Image Added successfully.');
         }
-        $image->save();
-
-//            dd($request);
-//        if ($request->hasFile('image')) {
-//            $images = $request->file('image');
-//            foreach ($images as $image) {
-//                $destinationPath = 'images/images/';
-//                $filename = time() . "." . $image->getClientOriginalExtension();
-//                $image->move($destinationPath, $filename);
-//                $image[] = $filename;
-//            }
-//
-//        }
-//
-//        $image->name=json_encode($image);
-//        $image->save();
-
-        Mail::raw('you have successful add image on mini drive', function ($msg) {
-            $msg->to(Auth::user()->email)->subject('Add Image');
-        });
-
-        return redirect('show')->with('success', 'Image Added successfully.');
     }
-
 
     public function edit($id)
     {
         //
     }
 
-
+    //Image Show
     public function show()
     {
         $images['images'] = Image::where('created_by', '=', Auth::user()->id)->get();
@@ -112,16 +89,8 @@ class ImageController extends Controller
         //
     }
 
-
-    public function destroy(Image $image, $id)
-    {
-        $image = Image::find($id);
-        $image->delete();
-        return redirect('show')->with('danger', 'Image Deleted successfully.');
-    }
-
-
-    public function view(Image $image, Share $share, $id)
+    //Image View Page
+    public function view(Image $image, Share $share, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 //         dd($share);
         $image = Image::find($id);
@@ -129,6 +98,7 @@ class ImageController extends Controller
 //        dd($share);
         return view('image.detail', compact(['image', 'share']));
     }
+
 
 }
 

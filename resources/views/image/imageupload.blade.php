@@ -35,7 +35,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form method="POST" action="/store" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('image.store')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
 
@@ -49,14 +49,29 @@
                                         <div class="input-group">
                                             <div class="custom-file">
 
-                                                <input type="file" name="image" id="exampleInputFile" multiple>
+                                                <input type="file" name="image" id="exampleInputFile" accept="image/*"
+                                                       onchange="loadFiles(event)" multiple>
 
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
-
+                                {{--// whene user uploade image then image is show with js help--}}
+                                <img style="margin-left:70%;
+border-radius:15px 0px 15px 0px;
+position:relative;
+  overflow:hidden;
+  ) " id="output"/>
+                                <script>
+                                    var loadFiles = function (event) {
+                                        var output = document.getElementById('output');
+                                        output.src = URL.createObjectURL(event.target.files[0]);
+                                        output.onload = function () {
+                                            URL.revokeObjectURL(output.src) // free memory
+                                        }
+                                    };
+                                </script>
                                 <div class="card-footer">
                                     {{--                                    <div class="input-group-btn">--}}
                                     <center>

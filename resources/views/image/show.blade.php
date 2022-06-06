@@ -7,7 +7,6 @@
         }
 
 
-
         #myImg {
             border-radius: 5px;
             cursor: pointer;
@@ -120,8 +119,9 @@
     </style>
     <div class="content-wrapper">
 
+    {{--// IMage view page--}}
 
-        <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -169,40 +169,42 @@
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead style="text-align: center">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Image</th>
-                                            <th>Createdby</th>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Image</th>
+                                        <th>Createdby</th>
 
-                                            <th>View</th>
-                                            <th>Delete</th>
-                                            <th>Share</th>
-                                        </tr>
+                                        <th>View</th>
+                                        <th>Delete</th>
+                                        <th>Share</th>
+                                    </tr>
                                     </thead>
 
-{{--
-                                    @if (!empty($image)) --}}
+                                    {{--
+                                                                        @if (!empty($image)) --}}
                                     <tbody style="text-align: center">
-                                        @foreach ($images as $image)
-                                            <tr>
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                <td><a href="/view/{{ $image->id }}"><img id="myImg" src="images/images/{{ $image->image }}" width="200px"
-                                                    height="70px" alt=""></a></td>
-                                                    <td>{{$image->user->name}}</td>
+                                    @foreach ($images as $image)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            <td><a href="/view/{{ $image->id }}"><img id="myImg"
+                                                                                      src="images/images/{{ $image->image }}"
+                                                                                      width="200px"
+                                                                                      height="70px" alt=""></a></td>
+                                            <td>{{$image->user->name}}</td>
 
-                                                <td><a href="/view/{{ $image->id }}"><i
-                                                            class="btn btn-block btn-outline-primary"
-                                                            data-feather="edit">view</i></a></td>
+                                            <td><a href="/image_view/{{ $image->id }}"><i
+                                                        class="btn btn-block btn-outline-primary"
+                                                        data-feather="edit">view</i></a></td>
 
-                                                <td><a href="/delete/{{ $image->id }}"><i
-                                                            class="btn btn-block btn-outline-danger"
-                                                            data-feather="edit">Delete</i></a></td>
+                                            <td><a href="/image_delete/{{ $image->id }}"><i
+                                                        class="btn btn-block btn-outline-danger"
+                                                        data-feather="edit">Delete</i></a></td>
 
-                                                <td><a href="/shareview/{{ $image->id }}"><i
-                                                            class="btn btn-block btn-outline-info"
-                                                            data-feather="edit">Share</i></a></td>
-                                            </tr>
-                                        @endforeach
+                                            <td><a href="/shareview/{{ $image->id }}"><i
+                                                        class="btn btn-block btn-outline-info"
+                                                        data-feather="edit">Share</i></a></td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                     {{-- @else
                                     <h1>add image</h1>

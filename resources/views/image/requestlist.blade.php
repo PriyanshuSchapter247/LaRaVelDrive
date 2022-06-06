@@ -136,8 +136,8 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
-        <!-- Main content -->
+    {{--// For request Page--}}
+    <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -164,8 +164,8 @@
 
                             </div>
 
-
-                            <!-- /.card-header -->
+                        {{--// REQUEST  view form--}}
+                        <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead style="text-align: center">

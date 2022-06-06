@@ -21,15 +21,15 @@ class ShareImageJob implements ShouldQueue
      * @return void
      */
 
-   protected $image;
+    protected $image;
+
     public function __construct($image)
     {
-        $this->image=$image;
+        $this->image = $image;
     }
 
 
-
-        public function handle()
+    public function handle()
     {
         Mail::to($this->image['send_to'])->send(new ShareImagemail($this->image));
     }

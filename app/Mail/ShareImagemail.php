@@ -17,10 +17,11 @@ class ShareImagemail extends Mailable
      * @return void
      */
     protected $image;
+
     public function __construct($image)
     {
-        $this->image=$image;
-    //    dd($product);
+        $this->image = $image;
+        //    dd($product);
     }
 
     /**
@@ -31,9 +32,9 @@ class ShareImagemail extends Mailable
     public function build()
     {
         // dd($this->product);
-        $image= $this->image;
+        $image = $this->image;
         return $this->from(env('MAIL_FROM_ADDRESS'))
-                    ->subject("This Image".$image['send_image']."Shared Successfully")
-                    ->view('email.shareimagemail',compact(['image']));
+            ->subject("This Image" . $image['send_image'] . "Shared Successfully")
+            ->view('email.shareimagemail', compact(['image']));
     }
 }

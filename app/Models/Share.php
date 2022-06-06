@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Share extends Model
 {
     use HasFactory;
-    protected $table="share";
-    protected $filllable=['send_from','send_to','send_image','status','url'];
+
+    protected $table = "share";
+    protected $filllable = ['send_from', 'send_to', 'send_image', 'status', 'url'];
 
 
-
-
-    public function User(){
-        return $this->belongsTo(User::class,'send_to','id');
+// Relation Share BelongsTo User
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'send_to', 'id');
     }
 
 }

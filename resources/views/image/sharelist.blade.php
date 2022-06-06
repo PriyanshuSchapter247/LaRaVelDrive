@@ -7,7 +7,6 @@
         }
 
 
-
         #myImg {
             border-radius: 5px;
             cursor: pointer;
@@ -120,8 +119,8 @@
     </style>
     <div class="content-wrapper">
 
-
-        <!-- Content Header (Page header) -->
+    {{--// Shared image view page--}}
+    <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -167,40 +166,35 @@
                             </div>
 
 
-
-
-
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead style="text-align: center">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Share from</th>
-                                            {{-- <th>Send to</th> --}}
-                                            {{-- <th>View</th> --}}
-                                            <th>image</th>
-                                            {{-- <th>View</th> --}}
-                                        </tr>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Share from</th>
+                                        {{-- <th>Send to</th> --}}
+                                        {{-- <th>View</th> --}}
+                                        <th>image</th>
+                                        {{-- <th>View</th> --}}
+                                    </tr>
                                     </thead>
                                     <tbody style="text-align: center">
-                                        @foreach ($images as $image)
-                                            <tr>
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                {{-- <td>{{ $image->user->email }}</td> --}}
-                                                <td>{{ $image->send_from }}</td>
+                                    @foreach ($images as $image)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            {{-- <td>{{ $image->user->email }}</td> --}}
+                                            <td>{{ $image->send_from }}</td>
 
-                                                <td><img id="myImg" src="images/images/{{ $image->send_image }}"
-                                                        width="400px" height="70px" alt=""></td>
-                                                {{-- <td><a href="/"><i
-                                                            class="btn btn-block btn-outline-primary"
-                                                            data-feather="edit">view</i></a></td> --}}
-
-
+                                            <td><img id="myImg" src="images/images/{{ $image->send_image }}"
+                                                     width="400px" height="70px" alt=""></td>
+                                            {{-- <td><a href="/"><i
+                                                        class="btn btn-block btn-outline-primary"
+                                                        data-feather="edit">view</i></a></td> --}}
 
 
-                                            </tr>
-                                        @endforeach
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

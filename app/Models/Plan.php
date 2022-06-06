@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
-    protected $table="plans";
-    protected$filllable=['name','cost','limit'];
 
-    public function Userplan(){
+    protected $table = "plans";
+    protected $filllable = ['name', 'cost', 'limit'];
+
+// Relation Plan HasMany User
+    public function Userplan()
+    {
 
         return $this->hasMany(User::class);
 

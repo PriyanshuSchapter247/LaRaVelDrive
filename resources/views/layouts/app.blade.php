@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/app.css') }}">
     <link rel="shortcut icon" href="cfrontend/images/favicon.svg') }}" type="image/x-icon">
+
 </head>
 
 <head>
@@ -48,9 +49,12 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
-</head>
 
+</head>
+{{--<div id="preloaders" class="preloader"></div>--}}
 <body class="hold-transition sidebar-mini layout-fixed">
+
+
 <div class="wrapper">
     <div id="app">
         @auth

@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('content')
+
+
     @foreach($plans as $plan)
         @csrf
         {{--        {{dd($plan)}}--}}
-
+        {{--        //Subcription  Page--}}
         <div Style="margin-top:4%; margin-left:25%">
             <div class="card" style="width: 20rem; float:left;">
                 <div class="card-body">
@@ -25,5 +27,7 @@
 
 
         </div>
+
+
     @endforeach
 @endsection
