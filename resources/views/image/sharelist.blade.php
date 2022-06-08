@@ -144,14 +144,14 @@
                     <div class="col-md-12">
                         <div class="card">
                             @if ($message = Session::get('success'))
-                                <div class="alert alert-success alert-dismissible">
+                                <div class="alert alert-success alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             @elseif ($message = Session::get('danger'))
-                                <div class="alert alert-danger alert-dismissible">
+                                <div class="alert alert-danger alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -173,28 +173,22 @@
                                     <tr>
                                         <th style="width: 10px">#</th>
                                         <th>Share from</th>
-                                        {{-- <th>Send to</th> --}}
-                                        {{-- <th>View</th> --}}
                                         <th>image</th>
-                                        {{-- <th>View</th> --}}
                                     </tr>
                                     </thead>
                                     <tbody style="text-align: center">
-                                    @foreach ($images as $image)
+                                    @forelse ($allImage as $image)
+
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
-                                            {{-- <td>{{ $image->user->email }}</td> --}}
-                                            <td>{{ $image->send_from }}</td>
+                                            {{-- <td>{{ $img->user->email }}</td> --}}
+                                            <td>{{ $image->send_from}} </td>
 
-                                            <td><img id="myImg" src="images/images/{{ $image->send_image }}"
-                                                     width="400px" height="70px" alt=""></td>
-                                            {{-- <td><a href="/"><i
-                                                        class="btn btn-block btn-outline-primary"
-                                                        data-feather="edit">view</i></a></td> --}}
-
-
+                                            <td><img id="myImg" src="/images/images/{{ $image->image->image ?? ''}}"
+                                                          width="400px" height="70px" alt=""></td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>

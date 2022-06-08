@@ -145,14 +145,14 @@
                     <div class="col-md-12">
                         <div class="card">
                             @if ($message = Session::get('success'))
-                                <div class="alert alert-success alert-dismissible">
+                                <div class="alert alert-success alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             @elseif ($message = Session::get('danger'))
-                                <div class="alert alert-danger alert-dismissible">
+                                <div class="alert alert-danger alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -162,7 +162,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Images Table</h3>
 
-                                <a href="/add" class="btn btn-outline-secondary" style="float: right">Add</a>
+                                <a href="/image_add" class="btn btn-outline-secondary" style="float: right">Add</a>
 
                             </div>
                             <!-- /.card-header -->

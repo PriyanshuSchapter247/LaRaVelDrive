@@ -30,7 +30,7 @@ class ShareController extends Controller
     //  For Share
     public function share(Request $request)
     {
-
+//dd()
         $image = new Share;
         $user_id = Auth::user()->id;
 //         dd($image);
@@ -38,25 +38,20 @@ class ShareController extends Controller
         $image->send_to = $request->get('send_to');
         $image->send_image = $request->get('send_image');
         $image->url = $request->get('url');
+//        $image->image_delete = $request->get('deleted_at');
         $image->status = '1';
-
-
         $image->save();
-        // send email here
-//        $data['send_from'] = $image->send_from;
-//        $data['send_to'] = $image->send_to;
-//        $data['send_image'] = $image->send_image;
-//        $data['send_url'] = $image->url;
-//        dispatch(new ShareImageJob($data));
         return redirect('show')->with('success', 'Image Shared successfully to ');
     }
 
     // For Share Record View
     public function sharelist()
     {
-        $images['images'] = Share::where('send_to', '=', Auth::user()->id)->where('status', '=', '1')->get();
-        // dd($images['images'];
-        return view('image.sharelist')->with($images);
+
+        $allImage= Share::with(['image'])->where('send_to', Auth::id())->where('status', '=', '1')->get();
+//         dd($allImage);
+        return view('image.sharelist',compact('allImage'));
+
     }
 
     //Share Request Page
@@ -65,13 +60,13 @@ class ShareController extends Controller
         $data = Image::with(['user'])->find($id);
 
 //         dd($data);
-//
+
         $image = new Share;
         $send_to = Auth::user()->id;
         $image->send_from = $data->created_by;
 //         dd($image->send_from);
         $image->send_to = $send_to;
-        $image->send_image = $data->image;
+        $image->send_image = $data->id;
         $image->url = $data->url;
         $image->status = '0';
         // dd($image);
@@ -87,10 +82,7 @@ class ShareController extends Controller
     public function requestlist()
     {
         $images['images'] = Share::where('send_from', '=', Auth::user()->id)->where('status', '=', '0')->get();
-//        $count = Share::where('send_from', '=', Auth::user()->id)->where('status', '=', '0')->count();
-        // dd($count);
-//         dd($images['images']);
-        // $images=Share::all();
+
         return view('image.requestlist')->with($images);
     }
 
@@ -103,5 +95,7 @@ class ShareController extends Controller
 
         return redirect('/requestlist')->with('success', 'Request Accepted successfully');
     }
+
+
 
 }

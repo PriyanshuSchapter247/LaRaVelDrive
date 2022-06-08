@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputFile">Image</label>
                                         <div class="input-group">
-                                            <div class="custom-file">
+                                            <div class="custom-file" style="width:30%;height:3% ;margin-left:35%">
                                                 <input type="file" name="image"
                                                        class="custom-file-input @error('image') is-invalid @enderror"
                                                        id="exampleInputFile">

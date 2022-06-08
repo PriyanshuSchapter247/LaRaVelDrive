@@ -144,14 +144,14 @@
                     <div class="col-md-12">
                         <div class="card">
                             @if ($message = Session::get('success'))
-                                <div class="alert alert-success alert-dismissible">
+                                <div class="alert alert-success alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             @elseif ($message = Session::get('danger'))
-                                <div class="alert alert-danger alert-dismissible">
+                                <div class="alert alert-danger alert-dismissible" style="width:30%;height:3% ;margin-left:35%">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -184,9 +184,12 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             {{-- <td>{{ $image->user->email }}</td> --}}
                                             <td>{{ $image->send_to }}</td>
-                                            <td><img id="myImg" src="images/images/{{ $image->send_image }}"
-                                                     width="400px" height="70px" alt=""></td>
+{{--                                            <td><img type="hidden " id="myImg" src="public/images/images/{{ $image->send_image }}"--}}
+{{--                                                     width="400px" height="70px" alt=" Shared Image"></td>--}}
 
+{{--                        {{dd($image->image->image)}}--}}
+                                            <td><img id="myImg" src=" {{asset("/images/images/".$image->image->image)}}"
+                                                     width="400px" height="70px" alt=""></td>
 
                                             <td><a href="/changestatus/{{ $image->id }}"><i
                                                         class="btn btn-block btn-outline-success"

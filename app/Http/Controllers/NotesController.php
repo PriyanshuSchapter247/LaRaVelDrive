@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Block;
 use App\Models\Category;
 use App\Models\User;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rules\Exists;
+
 
 class NotesController extends Controller
 {
@@ -83,13 +85,26 @@ class NotesController extends Controller
 
     public function update(Request $request, $id)
     {
+        $notes = Block::find($id);
+
 //    return $request->all();
         $request->validate([
             'name' => 'required|min:5',
             'notes' => 'required|max:2040'
         ]);
+        if ($request->hasFile('image')) {
+            $path = 'images/banner' . $notes->image;
+            if (file::exists($path)) {
+                file::delete($path);
+            }
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('images/banner', $filename);
+            $notes->image = $filename;
+//                        dd($notes);
+        }
 
-        $notes = Block::find($id);
         $notes->name = $request->input('name');
         $notes->notes = $request->input('notes');
         $notes->category_id = $request->input('category_id');

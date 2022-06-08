@@ -48,8 +48,8 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Image</label>
-                                            <input type="text" name="send_image" value="{{ $image->image }}"
+{{--                                            <label for="exampleInputEmail1">Image</label>--}}
+                                            <input type="hidden" name="send_image" value="{{ $image->id }}"
                                                    class="form-control" id="exampleInputEmail1" placeholder="Image">
                                         </div>
                                         <div class="form-group">

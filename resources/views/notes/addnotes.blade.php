@@ -54,7 +54,7 @@
                                                placeholder="Enter notes name">
                                     </div>
                                     @error('name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
                                     <div class="form-group">
@@ -63,7 +63,7 @@
                                                   class="form-control tinymce-editor"></textarea>
                                     </div>
                                     @error('notes')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
                                     <div class="form-group">
@@ -71,7 +71,7 @@
                                         <input type="file" name="image" class="form-control">
                                     </div>
                                     @error('image')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
 

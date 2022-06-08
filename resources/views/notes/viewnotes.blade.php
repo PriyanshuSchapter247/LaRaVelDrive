@@ -50,16 +50,15 @@
                                     <h5>
                                         <div class="user">
                                             <div class="user-info">
-                                                <h5>{{$notes->notes}}</h5>
+{{--                                                <h5>{{$notes->notes}}</h5>--}}
+                                                <h5 >{{$taglessBody = strip_tags($notes->notes)}}</h5>
                                             </div>
                                         </div>
                                     </h5>
                                 </div>
                             </div>
                         </div>
-
                 </div>
-{{--                @endforeach--}}
             </div>
 
     </section>

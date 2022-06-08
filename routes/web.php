@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/image_add', [App\Http\Controllers\ImageController::class, 'index'])->name('image.add');
 Route::post('/image_add', [App\Http\Controllers\ImageController::class, 'store'])->name('image.store');
 Route::get('/show', [App\Http\Controllers\ImageController::class, 'show'])->name('show');
-Route::get('/image_view/{id}', [App\Http\Controllers\ImageController::class, 'view']);
+Route::get('/image_view/{id}', [App\Http\Controllers\ImageController::class, 'image_view']);
 
 
 //view Controller
@@ -63,3 +63,6 @@ Route::get('/notes_delete/{id}', [App\Http\Controllers\NotesController::class, '
 // Category Controller
 Route::get('/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('add.category');
 Route::POST('/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+
+// Error Page
+#route('/error', [App\Http\Controllers\ShareController::class, 'error']);

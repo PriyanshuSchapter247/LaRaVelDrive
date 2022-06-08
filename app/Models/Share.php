@@ -19,4 +19,8 @@ class Share extends Model
         return $this->belongsTo(User::class, 'send_to', 'id');
     }
 
+    public function image()
+    {
+        return $this->belongsTo(Image::class,'send_image','id');
+    }
 }

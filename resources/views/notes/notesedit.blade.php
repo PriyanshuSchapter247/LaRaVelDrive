@@ -20,7 +20,7 @@
                         </select>
                     </div>
                     @error('category_name')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
                     <div class="form-group">
@@ -30,15 +30,24 @@
                                placeholder="Enter notes name">
                     </div>
                     @error('name')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
                     <div class="form-group">
                         <label>Notes</label>
-                        <textarea name="notes" rows="5" cols="40" class="form-control tinymce-editor"></textarea>
+                        <textarea name="notes"  rows="5" cols="40" class="form-control tinymce-editor"></textarea>
                     </div>
                     @error('notes')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div style="width:30%;height:3% ;margin-left:35%"  class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                    @error('image')
+                    <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
                     <div class="col-md-10">

@@ -24,4 +24,9 @@ class Image extends Model
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
 
+    public function Share()
+    {
+        return $this->hasMany(Share::class,'send_image','id');
+    }
+
 }

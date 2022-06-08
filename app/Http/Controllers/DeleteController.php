@@ -19,6 +19,9 @@ class DeleteController extends Controller
 
     public function destroy(Image $image, $id): \Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
+
+        $image = Image::with('Share')->find($id);
+        $image->Share()->delete();
         $image = Image::find($id);
         $image->delete();
         return redirect('show')->with('danger', 'Image Deleted successfully.');

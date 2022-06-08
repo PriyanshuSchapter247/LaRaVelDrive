@@ -43,7 +43,7 @@
                                         {{--                                        @if($errors->any())--}}
                                         <label for="exampleInputFile">Image</label>
                                         @error('image')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div style="width:30%;height:3% ;margin-left:35%" class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                         {{--                                        @endif--}}
                                         <div class="input-group">
@@ -61,8 +61,7 @@
                                 <img style="margin-left:70%;
 border-radius:15px 0px 15px 0px;
 position:relative;
-  overflow:hidden;
-  ) " id="output"/>
+  overflow:hidden;" id="output"/>
                                 <script>
                                     var loadFiles = function (event) {
                                         var output = document.getElementById('output');

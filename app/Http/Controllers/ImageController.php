@@ -90,13 +90,18 @@ class ImageController extends Controller
     }
 
     //Image View Page
-    public function view(Image $image, Share $share, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function image_view($id)
+        //\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 //         dd($share);
         $image = Image::find($id);
-        $share = Share::find($id);
+        if($image){
+            $share = Share::where('send_image',$id)->where('send_to',auth()->id())->first();
 //        dd($share);
-        return view('image.detail', compact(['image', 'share']));
+            return view('image.detail', compact(['image', 'share']));
+        }
+        return view('image.error');
+
     }
 
 
